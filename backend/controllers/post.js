@@ -23,9 +23,7 @@ export const getPosts = (req, res) => {
             return res.status(500).json({ error: "Erro ao buscar posts" });
         }
         return res.status(200).json(data);
-    })
-
-    
+        });
     });
 };
 
