@@ -43,7 +43,7 @@ export const login = (req, res)=>{
 
         if(!checkPassword) return res.status(400).json("Wrong password or username");
 
-        const token = jwt.sign({id:data[0].id}, "secretkey");
+        const token = jwt.sign({id:data[0].id}, "secretKey");
 
         const {password, ...others} = data[0];
 
