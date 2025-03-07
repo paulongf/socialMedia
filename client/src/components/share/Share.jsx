@@ -45,18 +45,25 @@ const Share = () => {
     e.preventDefault();
     let imgUrl = "";
     if(file) imgUrl = await upload();
-    mutation.mutate({description, img: imgUrl})
+    mutation.mutate({description, img: imgUrl});
+    setDescription("");
+    setFile(null);
   };
 
   return (
     <div className="share">
       <div className="container">
         <div className="top">
+          <div className="left">
           <img
             src={currentUser.profilePic}
             alt=""
           />
-          <input type="text" placeholder={`What's on your mind ${currentUser.name}?`} onChange={e=>setDescription(e.target.value)} />
+          <input value={description} type="text" placeholder={`What's on your mind ${currentUser.name}?`} onChange={e=>setDescription(e.target.value)} />
+          </div>
+          <div className="right">
+            {file && <img className="file" alt="" src={URL.createObjectURL(file)}/>}
+          </div>
         </div>
         <hr />
         <div className="bottom">
