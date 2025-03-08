@@ -47,7 +47,7 @@ const Comments = ({postId}) => {
         ? "Loading" 
         : data.map((comment) => (
           <div className="comment" key={comment.id}> {/* Usando o id do comentário como chave */}
-            <img src={comment.profilePicture} alt="" />
+            <img src={comment.profilePic} alt="" />
             <div className="info">
               <span>{comment.name}</span>
               <p>{comment.description}</p>
